@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./resources/css/index.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <a href="play.html">Play</a>
+    <a href="data.html">Data</a>
+    <a href="myprofile.html">My Profile</a>
+    <h1>My Profile</h1>
+    <h2>Information</h2>
+        <form>
+            <div class="formBox">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Name"/>
+            </div>
+            <div class="formBox">
+                <label for="height">Height</label>
+                <input type="text" id="height" placeholder="Weight"/>
+            </div>
+            <div class="formBox">
+                <label for="weight">Weight</label>
+                <input type="number" id="weight" placeholder="Weight"/>
+            </div>
+            <div class="formBox">
+                <label for="age">Age</label>
+                <input type="number" id="age" placeholder="Age"/>
+            </div>
+            <div class="formBox">
+                <label for="position">Position</label>
+                <input type="text" id="position" placeholder="Position"/>
+            </div>
+            <div class="formBox">
+                <label for="handedness">Left or Right</label>
+                <input type="text" id="handedness" placeholder="Left or Right"/>
+            </div>
+            <div class="formBox">
+                <label for="location">Location</label>
+                <input type="text" id="location" placeholder="Location"/>
+            </div>
+            <div class="formBox">
+                <label for="teams">Teams</label>
+                <input type="text" id="teams" placeholder="Teams"/>
+            </div>
+            <div class="formBox">
+                <label for="pname">Profile Name</label>
+                <input type="text" id="pname" placeholder="Profile Name"/>
+            </div>
+            <div class="formBox">
+                <label for="password">Password</label>
+                <input type="text" id="password" placeholder="Password"/>
+            </div>
+            <div class='formBox'>
+                <button id='btn'>Save</button>
+            </div>
+        </form>
+        <script>
+            let users= [];
+            const addUser = (ev)=>{}
+                ev.preventDefault();
+            let user = {
+                id: Date.now(),
+                name: document.getElementById('name').value,
+                height: document.getElementById('height').value,
+                weight: document.getElementById('weight').value,
+                age:document.getElementById('age').value,
+                position:document.getElementById('position').value,
+                handedness:document.getElementById('handedness').value,
+                location:document.getElementById('location').value,
+                teams:document.getElementById('teams').value,
+                pname:document.getElementById('pname').value,
+                password:document.getElementById('password').value,
+            }
+            users.push(user);
+            document.forms[0].reset();
+
+            console.warn('added', {users});
+            let pre = document.querySelector('#msg pre');
+            pre.textContent = '/n' + JSON.stringify(users, '/t', 2);
+
+            document.addEventListener('DOMContentLoaded', ()=>{document.getElementById('btn').addEventListener('click', addUser);
+        })
+
+        </script>
+</body>
+</html>
