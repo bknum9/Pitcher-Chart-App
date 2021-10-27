@@ -8,15 +8,26 @@
     <link href="./resources/css/index.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-    <a href="play.html">Play</a>
-    <a href="data.html">Data</a>
-    <a href="myprofile.html">My Profile</a>
-    <h1>My Profile</h1>
+    <h1>Pitch Chart</h1>
+    <p>Get access to your own professional level analytics.</p>
+    <div class="menu-bar">
+    <ul>
+      <li class="active"><a href="play.html">Play</a></li>
+      <li><a href="data.html">Data</a></li>
+      <li><a href="myprofile.html">Profile</a></li>
+    </ul>
+    </div>
+    <h1>Profile</h1>
     <h2>Information</h2>
         <form>
+            <fieldset>
             <div class="formBox">
                 <label for="name">Name</label>
                 <input type="text" id="name" placeholder="Name"/>
+            </div>
+            <div class="formBox">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Email"/>
             </div>
             <div class="formBox">
                 <label for="height">Height</label>
@@ -34,9 +45,13 @@
                 <label for="position">Position</label>
                 <input type="text" id="position" placeholder="Position"/>
             </div>
-            <div class="formBox">
-                <label for="handedness">Left or Right</label>
-                <input type="text" id="handedness" placeholder="Left or Right"/>
+            <div class="checks">
+                <input type="radio" id="lefthanded"/>
+                <label for="lefthanded">LHP</label>
+            </div>
+            <div class="checks">
+                <input type="radio" id="righthanded"/>
+                <label for="righthanded">RHP</label>
             </div>
             <div class="formBox">
                 <label for="location">Location</label>
@@ -57,6 +72,7 @@
             <div class='formBox'>
                 <button id='btn'>Save</button>
             </div>
+        </fieldset>
         </form>
         <script>
             let users= [];
