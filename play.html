@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="./resources/css/index.css" type="text/css" rel="stylesheet">
+    <script src="play.js"></script>
 </head>
 <body>
     <h1>Pitch Chart</h1>
@@ -18,5 +19,29 @@
     </ul>
     </div>
     <h1>Play Ball</h1>
+      <ul>
+          <li>Date</li>
+          <li>Time</li>
+          <li>Location (clickable, home away neutral)</li>
+          <li>Batter Name (clickable RHH, LHH, Switch)</li>
+          <li>Pitch Type(clickable FB, CH, SL, CB, etc.)</li>
+          <li>Pitch Velocity</li>
+
+          <li>Pitch Location</li>
+          <li>Pitch Result (ball, strike, foul ball)</li>
+          <li>Play Result (clickable, hit, error, groundout, sac fly, bunt, etc)</li>
+          <li>Contact Location</li>
+          <li>Contact Type (line drive, groundball, fly ball, bunt)</li>
+          <li>Runners on Base </li>
+      </ul>
+      <div class='ball'>
+        <p id='incrementBall'>0</p>
+        <button class="button" onclick="incrementBall()">Balls</button>
+      </div>
+    <div class='strike'>
+      <p id='incrementStrike'>0</p>
+      <button class="button" onclick="incrementStrike()">Strikes</button>
+    </div>
+    
 </body>
 </html>
