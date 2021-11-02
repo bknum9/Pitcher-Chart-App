@@ -3,10 +3,13 @@ function incrementStrike(){
     var value = element.innerHTML;
 
     ++value;
+<<<<<<< HEAD
     if (value == 3){
       window.clearInterval('incrementStrike');
       value = 0;
     }
+=======
+>>>>>>> 8a4efb9ea11a47054f0ff8fb83d8ef74fa94f6e5
     console.log(value);
     document.getElementById('incrementStrike').innerHTML = value;
   }
@@ -15,6 +18,7 @@ function incrementStrike(){
     var value = element.innerHTML;
 
     ++value;
+<<<<<<< HEAD
     if (value == 4){
       window.clearInterval('incrementBall');
       value = 0;
@@ -29,3 +33,8 @@ function incrementStrike(){
   function content(elem) {
     elem.style.backgroundColor = "red";
   }
+=======
+    console.log(value);
+    document.getElementById('incrementBall').innerHTML = value;
+  }
+>>>>>>> 8a4efb9ea11a47054f0ff8fb83d8ef74fa94f6e5
