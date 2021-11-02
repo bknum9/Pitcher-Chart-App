@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="./resources/css/index.css" type="text/css" rel="stylesheet">
+    <script src="play.js"></script>
 </head>
 <body>
     <h1>Pitch Chart</h1>
@@ -18,5 +19,272 @@
     </ul>
     </div>
     <h1>Play Ball</h1>
+      <ul>
+
+          <li>Pitch Location</li>
+          <li>Pitch Result (ball, strike, foul ball)</li>
+          <li>Play Result (clickable, hit, error, groundout, sac fly, bunt, etc)</li>
+          <li>Contact Location</li>
+          <li>Contact Type (line drive, groundball, fly ball, bunt)</li>
+          <li>Runners on Base </li>
+      </ul>
+      <div class='pitchinfopop' id='pitchinfopop'>
+          <div class="overlay"></div>
+          <div class="content">
+              <div class="savebtn" onclick="togglePopup()">&times;
+          </div>
+            <h1>Pitch Info</h1>
+                <div class="checks">
+                    <input type="radio" id="4fastball"/>
+                    <label for="4fastball">4 seam Fastball</label>
+                <div class="checks">
+                     <input type="radio" id="2fastball"/>
+                     <label for="2fastball">2 seam Fastball</label>
+                <div class="checks">
+                     <input type="radio" id="curveball"/>
+                     <label for="curveball">Curveball</label>
+                <div class="checks">
+                    <input type="radio" id="slider"/>
+                    <label for="slider">Slider</label>
+                 <div class="checks">
+                    <input type="radio" id="changeup"/>
+                    <label for="changeup">Changeup</label>
+                <div class="checks">
+                     <input type="radio" id="otherBall"/>
+                     <label for="otherBall">Other</label>
+                <div class="formBox">
+                    <label for="pitchVelocity">Pitch Velocity</label>
+                    <input type="number" id="pitchVelocity" placeholder="pitchVelocity"/>
+                <p id="para">Pitch Location to be figured out</p>
+                <table border= 2px id="strikeZone" class="strikeZone">
+                  <tr>
+                    <td rowspan="5" id="ball" onclick="content(this)">Ball</td>
+                  </tr>
+                  <tr>
+                    <td colspan="4" id="ball" onclick="content(this)">Ball</td>
+                  </tr>
+                  
+                  <tr>
+                    <td id="" onclick="content(this)">K</td>
+                    <td id="" onclick="content(this)">K</td>
+                    <td id="" onclick="content(this)">K</td>
+                    <td rowspan ="5" id="ball" onclick="content(this)">Ball</td>
+                  </tr>
+                  <tr>
+                    <td id="" onclick="content(this)">K</td>
+                    <td id="" onclick="content(this)">K</td>
+                    <td id="" onclick="content(this)">K</td>
+                  </tr>
+                  <tr>
+                    <td id="" onclick="content(this)">K</td>
+                    <td id="" onclick="content(this)">K</td>
+                    <td id="" onclick="content(this)">K</td>
+                  </tr>
+                  <tr>
+                    <td colspan="4" id="ball" onclick="content(this)">Ball</td>
+                  </tr>
+                </table>
+
+      </div>
+      <button onclick="togglePopup()">Pitch Info</button>
+      <div class='ball'>
+        <p id='incrementBall'>0</p>
+        <button class="button" onclick="incrementBall()">Balls</button>
+      </div>
+    <div class='strike'>
+      <p id='incrementStrike'>0</p>
+      <button class="button" onclick="incrementStrike()">Strikes</button>
+    </div>
+
+    <svg class="baseball-field" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 406 398">
+      <g data-name="Field">
+        <path class="dark-grass" d="M396.45849,213.97386c-.16877-7.59739-6.19474-201.84874-192.90143-201.84874-191.10739,0-192.89085,197.41523-192.906,202.00339L189.256,392.73344a20.11216,20.11216,0,0,0,28.44287,0Z"/>
+        <path data-name="Infield" class="sand" d="M203.47745,347.4514l90.93874-90.93874a91.554,91.554,0,0,0-181.87743,0Z"/>
+        <g>
+          <circle data-name="Home Plate Sand" class="sand" cx="203.47747" cy="347.00459" r="12.82958"/>
+          <circle data-name="Home Plate" class="white" cx="203.47747" cy="347.00459" r="4.45968"/>
+        </g>
+        <path data-name="Foul Lines" class="white" d="M203.4775,348.95105,389.12894,163.29961q-.14544-.60106-.29434-1.20588l-.7495-.7495L203.4775,345.95183,18.47531,160.94964l-.74972.74972q-.14447.60844-.286,1.21377Z"/>
+        <rect class="dark-grass" x="159.65524" y="223.28515" width="87.64446" height="87.64446" transform="translate(158.48433 599.86113) rotate(-135)"/>
+        <g>
+          <circle data-name="2nd Base Sand" class="sand" cx="203.47747" cy="205.13339" r="7.08924"/>
+          <circle data-name="2nd Base" class="white" cx="203.47747" cy="205.13339" r="2.46428"/>
+        </g>
+        <g>
+          <circle data-name="1st Base Sand" class="sand" cx="265.22208" cy="266.878" r="7.08924"/>
+          <circle data-name="1st Base" class="white" cx="265.22208" cy="266.878" r="2.46428"/>
+        </g>
+        <g>
+          <circle data-name="3rd Base Sand" class="sand" cx="141.70047" cy="266.878" r="7.08924"/>
+          <circle data-name="3rd Base" class="white" cx="141.70047" cy="266.878" r="2.46428"/>
+        </g>
+        <circle data-name="Mound" class="sand" cx="203.47747" cy="267.10738" r="7.59631"/>
+      </g>
+      
+      <!-- Translate x,y by 302, 347 to set origin to Home Plate -->
+      <g data-name="Hits" class="hits" transform="translate(203 347)">
+        <!-- 		<circle class="hit red" cx="0" cy="-150" r="6"/> -->
+        <!-- 		<circle class="hit blue" cx="0" cy="0" r="6"/> -->
+        <!-- R 150 -->
+        <path d="M0,0 Q-18,-165 0,-165" transform="rotate(18)" stroke-width="2" style="fill: none; stroke: black" stroke-dasharray="5, 5" />
+        <circle class="hit blue" cx="0" cy="-165" r="6" transform="rotate(18)"/> 
+      </g>
+    <!-- 	<g data-name="Field Markers">
+        <text class="cls-13" transform="translate(1.95162 203.27701)">A</text>
+        <text class="cls-13" transform="translate(5.28496 176.16279)">B</text>
+        <text class="cls-13" transform="translate(12.28496 150.04411)">C</text>
+        <text class="cls-13" transform="translate(21.28496 126.04411)">D</text>
+        <text class="cls-13" transform="translate(31.61813 104.04411)">E</text>
+        <text class="cls-13" transform="translate(43.95162 83.713)">F</text>
+        <text class="cls-13" transform="translate(56.61829 65.71078)">G</text>
+        <text class="cls-13" transform="translate(74.95163 49.04411)">H</text>
+        <text class="cls-13" transform="translate(98.09225 35.21615)">I</text>
+        <text class="cls-13" transform="translate(116.61829 26.37744)">J</text>
+        <text class="cls-13" transform="translate(139.23618 18.37744)">K</text>
+        <text class="cls-13" transform="translate(163.95163 12.733)">L</text>
+        <text class="cls-13" transform="translate(186.28496 10.04411)">M</text>
+        <text class="cls-13" transform="translate(210.56688 10.04411)">N</text>
+        <text class="cls-13" transform="translate(226.99124 11.37744)">O</text>
+        <text class="cls-13" transform="translate(247.28496 15.37744)">P</text>
+        <text class="cls-13" transform="translate(267.68637 20.04411)">Q</text>
+        <text class="cls-13" transform="translate(289.64467 28.37744)">R</text>
+        <text class="cls-13" transform="translate(310.32417 40.3269)">S</text>
+        <text class="cls-13" transform="translate(330.78496 54.3772)">T</text>
+        <text class="cls-13" transform="translate(347.6183 75.41023)">U</text>
+        <text class="cls-13" transform="translate(364.03496 98.04387)">V</text>
+        <text class="cls-13" transform="translate(375.1183 118.95438)">W</text>
+        <text class="cls-13" transform="translate(387.03496 147.52384)">X</text>
+        <text class="cls-13" transform="translate(394.03496 174.37769)">Y</text>
+        <text class="cls-13" transform="translate(398.78496 205.98229)">Z</text>
+      </g> -->
+    </svg>
+    
+    <form> Game Setup
+      <fieldset>
+      <div class="formBox">
+          <label for="opponentTeamName">Opponent</label>
+          <input type="text" id="opponentTeamName"/>
+      </div>
+      <div class="formBox">
+          <label for="gameDate">Date</label>
+          <input type="date" id="gameDate" placeholder="Date"/>
+      </div>
+      <p> Site </p>
+     <div class="checks">
+        <input type="radio" id="homeGame"/>
+        <label for="homeGame">Home</label>
+    </div>
+    <div class="checks">
+        <input type="radio" id="awayGame"/>
+        <label for="awayGame">Away</label>
+    </div>
+    <div class="checks">
+        <input type="radio" id="neutralGame"/>
+        <label for="neutralGame">Neutral</label>
+    </div>
+    <p>Lineup</p>
+      <div class="formBox">
+          <label for="playerName">Player Name</label>
+          <input type="text" id="playerName"/>
+      </div>
+      <div class="checks">
+          <input type="radio" id="lefty"/>
+          <label for="lefty">LHH</label>
+      </div>
+      <div class="checks">
+        <input type="radio" id="righty"/>
+        <label for="righty">RHH</label>
+        <div class="formBox">
+            <label for="playerName">Player Name</label>
+            <input type="text" id="playerName"/>
+        </div>
+        <div class="checks">
+            <input type="radio" id="lefty"/>
+            <label for="lefty">LHH</label>
+        </div>
+        <div class="checks">
+          <input type="radio" id="righty"/>
+          <label for="righty">RHH</label>
+          <div class="formBox">
+            <label for="playerName">Player Name</label>
+            <input type="text" id="playerName"/>
+        </div>
+        <div class="checks">
+            <input type="radio" id="lefty"/>
+            <label for="lefty">LHH</label>
+        </div>
+        <div class="checks">
+          <input type="radio" id="righty"/>
+          <label for="righty">RHH</label>
+          <div class="formBox">
+            <label for="playerName">Player Name</label>
+            <input type="text" id="playerName"/>
+        </div>
+        <div class="checks">
+            <input type="radio" id="lefty"/>
+            <label for="lefty">LHH</label>
+        </div>
+        <div class="checks">
+          <input type="radio" id="righty"/>
+          <label for="righty">RHH</label>
+          <div class="formBox">
+            <label for="playerName">Player Name</label>
+            <input type="text" id="playerName"/>
+        </div>
+        <div class="checks">
+            <input type="radio" id="lefty"/>
+            <label for="lefty">LHH</label>
+        </div>
+        <div class="checks">
+          <input type="radio" id="righty"/>
+          <label for="righty">RHH</label>
+          <div class="formBox">
+            <label for="playerName">Player Name</label>
+            <input type="text" id="playerName"/>
+        </div>
+        <div class="checks">
+            <input type="radio" id="lefty"/>
+            <label for="lefty">LHH</label>
+        </div>
+        <div class="checks">
+          <input type="radio" id="righty"/>
+          <label for="righty">RHH</label>
+          <div class="formBox">
+            <label for="playerName">Player Name</label>
+            <input type="text" id="playerName"/>
+        </div>
+        <div class="checks">
+            <input type="radio" id="lefty"/>
+            <label for="lefty">LHH</label>
+        </div>
+        <div class="checks">
+          <input type="radio" id="righty"/>
+          <label for="righty">RHH</label>
+          <div class="formBox">
+            <label for="playerName">Player Name</label>
+            <input type="text" id="playerName"/>
+        </div>
+        <div class="checks">
+            <input type="radio" id="lefty"/>
+            <label for="lefty">LHH</label>
+        </div>
+        <div class="checks">
+          <input type="radio" id="righty"/>
+          <label for="righty">RHH</label>
+          <div class="formBox">
+            <label for="playerName">Player Name</label>
+            <input type="text" id="playerName"/>
+        </div>
+        <div class="checks">
+            <input type="radio" id="lefty"/>
+            <label for="lefty">LHH</label>
+        </div>
+        <div class="checks">
+          <input type="radio" id="righty"/>
+          <label for="righty">RHH</label>
+     
+
+     
+    
 </body>
 </html>
