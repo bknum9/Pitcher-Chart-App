@@ -15,6 +15,22 @@ $(document).ready(function(){
       {
         name     : 'Two-seam Fastball',
         value    : 'fastball_2'
+      },
+      {
+        name     : 'Curveball',
+        value    : 'curveball'
+      },
+      {
+        name     : 'Slider',
+        value    : 'slider'
+      },
+      {
+        name     : 'Changeup',
+        value    : 'changeup'
+      }, 
+      {
+        name     : 'Other',
+        value    : 'other_pitch'
       }
     ]
   })});
