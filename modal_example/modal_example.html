@@ -1,89 +1,134 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
-            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-            crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
-    <script src="modal_example.js"></script>
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
-    <link href="modal_example.css" type="text/css" rel="stylesheet">
-</head>
-<body>
-<h1>Pitch Chart</h1>
-<p>Get access to your own professional level analytics.</p>
-<div class="menu-bar">
-    <ul>
-        <li class="active"><a href="../play.html">Play</a></li>
-        <li><a href="../data.html">Data</a></li>
-        <li><a href="../myprofile.html">Profile</a></li>
-    </ul>
-</div>
-
-<div class="ui middle aligned center aligned grid">
-    <div class="column">
-        <h1>Play Ball!</h1>
-        <button class="ui massive circular icon button"
-                onclick="showModal();">
-            <i class="baseball ball icon"></i>
-        </button>
-
-    </div>
-</div>
-<div class="ui mini modal" id="pitch_type_modal">
-    <div class="header">Pitch Type</div>
-    <div class="content">
-        <form class="ui form">
-            <div class="field">
-                <div class="ui fluid dropdown labeled search icon button"
-                     id="pitch_type">
-                    <i class="baseball ball icon"></i>
-                    <div class="text"></div>
-                    <input type="hidden" name="pitch_type">
-                </div>
+<html lang='en'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Play</title>
+        <script crossorigin='anonymous'
+                integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8='
+                src='https://code.jquery.com/jquery-3.1.1.min.js'>
+        </script>
+        <script src='https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js'></script>
+        <script src='modal_example.js'></script>
+        <link href='https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css'
+              rel='stylesheet'>
+        <link href='modal_example.css' rel='stylesheet' type='text/css'>
+        <link href='favicons/favicon_white_blue.ico' rel='shortcut icon' type='image/jpg'/>
+    </head>
+    <body>
+        <h1>Pitch Chart</h1>
+        <p>Get access to your own professional level analytics.</p>
+        <div class='menu-bar'>
+            <ul>
+                <li class='active'><a href='../play.html'>Play</a></li>
+                <li><a href='../data.html'>Data</a></li>
+                <li><a href='../myprofile.html'>Profile</a></li>
+            </ul>
+        </div>
+        
+        <div class='ui middle aligned center aligned grid'>
+            <div class='column'>
+                <h1>Play Ball!</h1>
+                <button class='ui massive circular icon button' onclick='showModal();'>
+                    <i class='baseball ball icon'></i>
+                </button>
+            
             </div>
-        </form>
-    </div>
-</div>
-<div class="ui mini modal" id="pitch_detail_modal">
-    <div class="header">Pitch Details</div>
-    <div class="content">
-        <form class="ui form">
-            <label>Velocity</label>
-            <div class="ui fluid right labeled input">
-                <input type="number" name="velocity"
-                       placeholder="Velocity" max="110" min="50">
-                <div class="ui basic label">
-                    mph
-                </div>
+        </div>
+        <div class='ui mini modal' id='pitch_type_modal'>
+            <div class='header'>Pitch Type</div>
+            <div class='content'>
+                <form class='ui form'>
+                    <div class='field'>
+                        <div class='ui fluid dropdown labeled search icon button' id='pitch_type'>
+                            <i class='baseball ball icon'></i>
+                            <div class='text'></div>
+                            <input name='pitch_type' type='hidden'>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <label>Vertical Movement</label>
-            <div class="ui fluid right labeled input">
-
-                <input type="number" name="vertical_movement"
-                       placeholder="Vertical Movement" max="30" min="-30">
-                <div class="ui basic label">
-                    inches
-                </div>
+        </div>
+        <div class='ui mini modal' id='pitch_detail_modal'>
+            <div class='header'>Pitch Details</div>
+            <div class='content'>
+                <form class='ui form'>
+                    <label>Velocity</label>
+                    <div class='ui fluid right labeled input'>
+                        <input max='110' min='50'
+                               name='velocity' placeholder='Velocity' type='number'>
+                        <div class='ui basic label'>
+                            mph
+                        </div>
+                    </div>
+                    <label>Vertical Movement</label>
+                    <div class='ui fluid right labeled input'>
+                        
+                        <input max='30' min='-30'
+                               name='vertical_movement' placeholder='Vertical Movement' type='number'>
+                        <div class='ui basic label'>
+                            inches
+                        </div>
+                    </div>
+                    <label>Horizontal Movement</label>
+                    <div class='ui fluid right labeled input'>
+                        <input max='30' min='-30'
+                               name='horizontal_movement' placeholder='Horizontal Movement' type='number'>
+                        <div class='ui basic label'>
+                            inches
+                        </div>
+                    </div>
+                    <label></label>
+                    <div class='ui fluid submit button' id='pitch_detail_submit' onclick='showPitchLocationModal()'>
+                        Submit
+                    </div>
+                </form>
             </div>
-            <label>Horizontal Movement</label>
-            <div class="ui fluid right labeled input">
-                <input type="number" name="horizontal_movement"
-                       placeholder="Horizontal Movement" max="30" min="-30">
-                <div class="ui basic label">
-                    inches
-                </div>
+        </div>
+        <div class='ui mini modal' id='pitch_location_modal'>
+            <div class='header'>Pitch Location</div>
+            <div class='ui centered medium image'>
+                <svg id='strike_zone' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'>
+                    <style>
+                        rect {
+                            fill: #FFFFFF;
+                            stroke: #000000;
+                            stroke-width: 3;
+                        }
+                        
+                        rect:hover {
+                            fill: #000000;
+                            stroke: #FFFFFF;
+                            stroke-width: 3;
+                        }
+                        
+                        polygon {
+                            fill: #FFFFFF;
+                            stroke: #000000;
+                            stroke-width: 3;
+                        }
+                        
+                        polygon:hover {
+                            fill: #000000;
+                            stroke: #FFFFFF;
+                            stroke-width: 3;
+                        }
+                    </style>
+                    <polygon id='ball_top_left' points='0,0 50,0 50,20 20,20 20,50 0,50'/>
+                    <polygon id='ball_bottom_left' points='0,50 20,50 80,20 50,80 50,100 0,100'/>
+                    <polygon id='ball_bottom_right' points='50,80 80,80 80,50 100,50 100,100 50,100'/>
+                    <polygon id='ball_top_right' points='50,0 100,0 100,50 80,50 80,20 50,20'/>
+                    <rect height='20' id='strike_top_left' width='20' x='20' y='20'/>
+                    <rect height='20' id='strike_top_middle' width='20' x='40' y='20'/>
+                    <rect height='20' id='strike_top_right' width='20' x='60' y='20'/>
+                    <rect height='20' id='strike_middle_left' width='20' x='20' y='40'/>
+                    <rect height='20' id='strike_middle_middle' width='20' x='40' y='40'/>
+                    <rect height='20' id='strike_middle_right' width='20' x='60' y='40'/>
+                    <rect height='20' id='strike_bottom_left' width='20' x='20' y='60'/>
+                    <rect height='20' id='strike_bottom_middle' width='20' x='40' y='60'/>
+                    <rect height='20' id='strike_bottom_right' width='20' x='60' y='60'/>
+                </svg>
+            
             </div>
-            <label></label>
-            <div class="ui fluid submit button">
-                Submit
-            </div>
-        </form>
-    </div>
-</div>
-</body>
+        </div>
+    </body>
 </html>
