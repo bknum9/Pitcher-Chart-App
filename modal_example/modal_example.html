@@ -86,48 +86,56 @@
         </div>
         <div class='ui mini modal' id='pitch_location_modal'>
             <div class='header'>Pitch Location</div>
-            <div class='ui centered medium image'>
-                <svg id='strike_zone' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'>
-                    <style>
-                        rect {
-                            fill: #FFFFFF;
-                            stroke: #000000;
-                            stroke-width: 3;
-                        }
-                        
-                        rect:hover {
-                            fill: #000000;
-                            stroke: #FFFFFF;
-                            stroke-width: 3;
-                        }
-                        
-                        polygon {
-                            fill: #FFFFFF;
-                            stroke: #000000;
-                            stroke-width: 3;
-                        }
-                        
-                        polygon:hover {
-                            fill: #000000;
-                            stroke: #FFFFFF;
-                            stroke-width: 3;
-                        }
-                    </style>
-                    <polygon id='ball_top_left' points='0,0 50,0 50,20 20,20 20,50 0,50'/>
-                    <polygon id='ball_bottom_left' points='0,50 20,50 80,20 50,80 50,100 0,100'/>
-                    <polygon id='ball_bottom_right' points='50,80 80,80 80,50 100,50 100,100 50,100'/>
-                    <polygon id='ball_top_right' points='50,0 100,0 100,50 80,50 80,20 50,20'/>
-                    <rect height='20' id='strike_top_left' width='20' x='20' y='20'/>
-                    <rect height='20' id='strike_top_middle' width='20' x='40' y='20'/>
-                    <rect height='20' id='strike_top_right' width='20' x='60' y='20'/>
-                    <rect height='20' id='strike_middle_left' width='20' x='20' y='40'/>
-                    <rect height='20' id='strike_middle_middle' width='20' x='40' y='40'/>
-                    <rect height='20' id='strike_middle_right' width='20' x='60' y='40'/>
-                    <rect height='20' id='strike_bottom_left' width='20' x='20' y='60'/>
-                    <rect height='20' id='strike_bottom_middle' width='20' x='40' y='60'/>
-                    <rect height='20' id='strike_bottom_right' width='20' x='60' y='60'/>
-                </svg>
-            
+            <div class='ui padded grid'>
+                <div class='column'>
+                    <div class='ui segment'>
+                        <svg id='strike_zone' viewBox='-0.5 -0.5 101 101' xmlns='http://www.w3.org/2000/svg'>
+                            <style>
+                                rect {
+                                    fill: #EEEEEE;
+                                    stroke: #000064;
+                                    stroke-width: 1;
+                                }
+                                
+                                rect:hover {
+                                    fill: #FFFFFF;
+                                    stroke: #000080;
+                                    stroke-width: 1;
+                                }
+                                
+                                polygon {
+                                    fill: #EEEEEE;
+                                    stroke: #000064;
+                                    stroke-width: 1;
+                                }
+                                
+                                polygon:hover {
+                                    fill: #FFFFFF;
+                                    stroke: #000080;
+                                    stroke-width: 1;
+                                }
+                            </style>
+                            <rect height='101' width='101' x='-0.5' y='-0.5'/>
+                            <polygon id='ball_top_left'
+                                     points='0.5,0.5 49.5,0.5 49.5,19.5 19.5,19.5 19.5,49.5 0.5,49.5'/>
+                            <polygon id='ball_bottom_left'
+                                     points='0.5,50.5 19.5,50.5 19.5,80.5 49.5,80.5 49.5,99.5 0.5,99.5'/>
+                            <polygon id='ball_bottom_right'
+                                     points='50.5,80.5 80.5,80.5 80.5,50.5 99.5,50.5 99.5,99.5 50.5,99.5'/>
+                            <polygon id='ball_top_right'
+                                     points='50.5,0.5 99.5,0.5 99.5,49.5 80.5,49.5 80.5,19.5 50.5,19.5'/>
+                            <rect height='19' id='strike_top_left' width='19' x='20.5' y='20.5'/>
+                            <rect height='19' id='strike_top_middle' width='19' x='40.5' y='20.5'/>
+                            <rect height='19' id='strike_top_right' width='19' x='60.5' y='20.5'/>
+                            <rect height='19' id='strike_middle_left' width='19' x='20.5' y='40.5'/>
+                            <rect height='19' id='strike_middle_middle' width='19' x='40.5' y='40.5'/>
+                            <rect height='19' id='strike_middle_right' width='19' x='60.5' y='40.5'/>
+                            <rect height='19' id='strike_bottom_left' width='19' x='20.5' y='60.5'/>
+                            <rect height='19' id='strike_bottom_middle' width='19' x='40.5' y='60.5'/>
+                            <rect height='19' id='strike_bottom_right' width='19' x='60.5' y='60.5'/>
+                        </svg>
+                    </div>
+                </div>
             </div>
         </div>
     </body>
