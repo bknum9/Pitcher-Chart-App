@@ -15,31 +15,28 @@
         <link href='favicons/favicon_white_blue.ico' rel='shortcut icon' type='image/jpg'/>
     </head>
     <body>
-        <h1>Pitch Chart</h1>
-        <p>Get access to your own professional level analytics.</p>
-        <div class='menu-bar'>
-            <ul>
-                <li class='active'><a href='../play.html'>Play</a></li>
-                <li><a href='../data.html'>Data</a></li>
-                <li><a href='../myprofile.html'>Profile</a></li>
-            </ul>
+        <h1 class='ui header center aligned'>Pitch Chart</h1>
+        <h3 class='ui header center aligned'>Get access to your own professional level analytics.</h3>
+        <div class='ui massive three item violet inverted menu'>
+            <a class='item' href='../play.html'>Play</a>
+            <a class='item' href='../data.html'>Data</a>
+            <a class='item' href='../myprofile.html'>Profile</a>
         </div>
         
         <div class='ui middle aligned center aligned grid'>
             <div class='column'>
                 <h1>Play Ball!</h1>
-                <button class='ui massive circular icon button' onclick='showModal();'>
+                <button class='ui massive violet circular icon button' onclick='showModal();'>
                     <i class='baseball ball icon'></i>
                 </button>
-            
             </div>
         </div>
         <div class='ui mini modal' id='pitch_type_modal'>
-            <div class='header'>Pitch Type</div>
+            <div class='ui centered header'>Pitch Type</div>
             <div class='content'>
                 <form class='ui form'>
                     <div class='field'>
-                        <div class='ui fluid dropdown labeled search icon button' id='pitch_type'>
+                        <div class='ui fluid dropdown violet labeled search icon button' id='pitch_type'>
                             <i class='baseball ball icon'></i>
                             <div class='text'></div>
                             <input name='pitch_type' type='hidden'>
@@ -49,23 +46,22 @@
             </div>
         </div>
         <div class='ui mini modal' id='pitch_detail_modal'>
-            <div class='header'>Pitch Details</div>
+            <div class='ui centered header'>Pitch Details</div>
             <div class='content'>
                 <form class='ui form'>
                     <label>Velocity</label>
                     <div class='ui fluid right labeled input'>
                         <input max='110' min='50'
                                name='velocity' placeholder='Velocity' type='number'>
-                        <div class='ui basic label'>
+                        <div class='ui basic violet label'>
                             mph
                         </div>
                     </div>
                     <label>Vertical Movement</label>
                     <div class='ui fluid right labeled input'>
-                        
                         <input max='30' min='-30'
                                name='vertical_movement' placeholder='Vertical Movement' type='number'>
-                        <div class='ui basic label'>
+                        <div class='ui basic violet label'>
                             inches
                         </div>
                     </div>
@@ -73,19 +69,20 @@
                     <div class='ui fluid right labeled input'>
                         <input max='30' min='-30'
                                name='horizontal_movement' placeholder='Horizontal Movement' type='number'>
-                        <div class='ui basic label'>
+                        <div class='ui basic violet label'>
                             inches
                         </div>
                     </div>
                     <label></label>
-                    <div class='ui fluid submit button' id='pitch_detail_submit' onclick='showPitchLocationModal()'>
+                    <div class='ui fluid violet submit button' id='pitch_detail_submit'
+                         onclick='showPitchLocationModal()'>
                         Submit
                     </div>
                 </form>
             </div>
         </div>
         <div class='ui mini modal' id='pitch_location_modal'>
-            <div class='header'>Pitch Location</div>
+            <div class='ui centered header'>Pitch Location</div>
             <div class='ui padded grid'>
                 <div class='column'>
                     <div class='ui segment'>
@@ -93,25 +90,25 @@
                             <style>
                                 rect {
                                     fill: #EEEEEE;
-                                    stroke: #000064;
+                                    stroke: #000080;
                                     stroke-width: 1;
                                 }
                                 
                                 rect:hover {
                                     fill: #FFFFFF;
-                                    stroke: #000080;
+                                    stroke: #6435C9;
                                     stroke-width: 1;
                                 }
                                 
                                 polygon {
                                     fill: #EEEEEE;
-                                    stroke: #000064;
+                                    stroke: #000080;
                                     stroke-width: 1;
                                 }
                                 
                                 polygon:hover {
                                     fill: #FFFFFF;
-                                    stroke: #000080;
+                                    stroke: #6435C9;
                                     stroke-width: 1;
                                 }
                             </style>
@@ -134,6 +131,7 @@
                             <rect height='19' id='strike_bottom_middle' width='19' x='40.5' y='60.5'/>
                             <rect height='19' id='strike_bottom_right' width='19' x='60.5' y='60.5'/>
                         </svg>
+                    
                     </div>
                 </div>
             </div>
