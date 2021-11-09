@@ -22,13 +22,100 @@
             <a class='item' href='../data.html'>Data</a>
             <a class='item' href='../myprofile.html'>Profile</a>
         </div>
-        
-        <div class='ui middle aligned center aligned grid'>
-            <div class='column'>
-                <h1>Play Ball!</h1>
-                <button class='ui massive violet circular icon button' onclick='showModal();'>
-                    <i class='baseball ball icon'></i>
-                </button>
+        <div class='ui top attached tabular menu'>
+            <a class='active item' data-tab='game'>Game</a>
+            <a class='item' data-tab='lineups'>Edit Lineups</a>
+        </div>
+        <div class='ui bottom attached active tab segment' data-tab='game'>
+            <div class='ui grid'>
+                <div class='two wide column'>
+                    <h2 class='ui center aligned header'>Away</h2>
+                    <div class='ui celled ordered list'>
+                        <div class='item'>
+                            <div class='header'>#2 Player name</div>
+                            Position - R
+                        </div>
+                        <div class='item'>
+                            <div class='header'>#2 Player name</div>
+                            Position - R
+                        </div>
+                        <div class='item'>
+                            <div class='header'>#2 Player name</div>
+                            Position - R
+                        </div>
+                        <div class='item'>
+                            <div class='header'>#2 Player name</div>
+                            Position - R
+                        </div>
+                        <div class='item'>
+                            <div class='header'>#2 Player name</div>
+                            Position - R
+                        </div>
+                        <div class='item'>
+                            <div class='header'>#2 Player name</div>
+                            Position - R
+                        </div>
+                        <div class='item'>
+                            <div class='header'>#2 Player name</div>
+                            Position - R
+                        </div>
+                        <div class='item'>
+                            <div class='header'>#2 Player name</div>
+                            Position - R
+                        </div>
+                        <div class='item'>
+                            <div class='header'>#2 Player name</div>
+                            Position - R
+                        </div>
+                    </div>
+                </div>
+                <div class='twelve middle aligned centered wide column'>
+                    <h1>Play Ball!</h1>
+                    <button class='ui massive violet circular icon button' onclick='showModal();'>
+                        <i class='baseball ball icon'></i>
+                    </button>
+                </div>
+                <div class='two wide column'>
+                    <h2 class='ui center aligned header'>Home</h2>
+                    <div class='ui celled ordered list'>
+                        <div class='item'>
+                            <div class='header'>#2 Player name</div>
+                            Position - R
+                        </div>
+                        <div class='item'>
+                            <div class='header'>#2 Player name</div>
+                            Position - R
+                        </div>
+                        <div class='item'>
+                            <div class='header'>#2 Player name</div>
+                            Position - R
+                        </div>
+                        <div class='item'>
+                            <div class='header'>#2 Player name</div>
+                            Position - R
+                        </div>
+                        <div class='item'>
+                            <div class='header'>#2 Player name</div>
+                            Position - R
+                        </div>
+                        <div class='item'>
+                            <div class='header'>#2 Player name</div>
+                            Position - R
+                        </div>
+                        <div class='item'>
+                            <div class='header'>#2 Player name</div>
+                            Position - R
+                        </div>
+                        <div class='item'>
+                            <div class='header'>#2 Player name</div>
+                            Position - R
+                        </div>
+                        <div class='item'>
+                            <div class='header'>#2 Player name</div>
+                            Position - R
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class='ui mini modal' id='pitch_type_modal'>
@@ -49,28 +136,34 @@
             <div class='ui centered header'>Pitch Details</div>
             <div class='content'>
                 <form class='ui form'>
-                    <label>Velocity</label>
-                    <div class='ui fluid right labeled input'>
-                        <input max='110' min='50'
-                               name='velocity' placeholder='Velocity' type='number'>
-                        <div class='ui basic violet label'>
-                            mph
+                    <div class='field'>
+                        <label>Velocity</label>
+                        <div class='ui fluid right labeled input'>
+                            <input max='110' min='50'
+                                   name='velocity' placeholder='Velocity' type='number'>
+                            <div class='ui basic violet label'>
+                                mph
+                            </div>
                         </div>
                     </div>
-                    <label>Vertical Movement</label>
-                    <div class='ui fluid right labeled input'>
-                        <input max='30' min='-30'
-                               name='vertical_movement' placeholder='Vertical Movement' type='number'>
-                        <div class='ui basic violet label'>
-                            inches
+                    <div class='field'>
+                        <label>Vertical Movement</label>
+                        <div class='ui fluid right labeled input'>
+                            <input max='30' min='-30'
+                                   name='vertical_movement' placeholder='Vertical Movement' type='number'>
+                            <div class='ui basic violet label'>
+                                inches
+                            </div>
                         </div>
                     </div>
-                    <label>Horizontal Movement</label>
-                    <div class='ui fluid right labeled input'>
-                        <input max='30' min='-30'
-                               name='horizontal_movement' placeholder='Horizontal Movement' type='number'>
-                        <div class='ui basic violet label'>
-                            inches
+                    <div class='field'>
+                        <label>Horizontal Movement</label>
+                        <div class='ui fluid right labeled input'>
+                            <input max='30' min='-30'
+                                   name='horizontal_movement' placeholder='Horizontal Movement' type='number'>
+                            <div class='ui basic violet label'>
+                                inches
+                            </div>
                         </div>
                     </div>
                     <label></label>
@@ -132,6 +225,255 @@
                             <rect height='19' id='strike_bottom_right' width='19' x='60.5' y='60.5'/>
                         </svg>
                     
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='ui bottom attached tab segment' data-tab='lineups'>
+            <div class='ui grid'>
+                <div class='two wide column'>
+                    <h2 class='ui center aligned header'>Away</h2>
+                    <table class='ui celled table'>
+                        <tr>
+                            <td>
+                                1
+                            </td>
+                            <td class='selectable'>
+                                <a href='#edit_lineup_modal' id='lineup_edit'>
+                                    <b>#2 Player name</b><br/>
+                                    Position - R
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                2
+                            </td>
+                            <td class='selectable'>
+                                <a href='#edit_lineup_modal'>
+                                    <b>#2 Player name</b><br/>
+                                    Position - R
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                3
+                            </td>
+                            <td class='selectable'>
+                                <a href='#edit_lineup_modal'>
+                                    <b>#2 Player name</b><br/>
+                                    Position - R
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                4
+                            </td>
+                            <td class='selectable'>
+                                <a href='#edit_lineup_modal'>
+                                    <b>#2 Player name</b><br/>
+                                    Position - R
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                5
+                            </td>
+                            <td class='selectable'>
+                                <a href='#edit_lineup_modal'>
+                                    <b>#2 Player name</b><br/>
+                                    Position - R
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                6
+                            </td>
+                            <td class='selectable'>
+                                <a href='#edit_lineup_modal'>
+                                    <b>#2 Player name</b><br/>
+                                    Position - R
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                7
+                            </td>
+                            <td class='selectable'>
+                                <a href='#edit_lineup_modal'>
+                                    <b>#2 Player name</b><br/>
+                                    Position - R
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                8
+                            </td>
+                            <td class='selectable'>
+                                <a href='#edit_lineup_modal'>
+                                    <b>#2 Player name</b><br/>
+                                    Position - R
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                9
+                            </td>
+                            <td class='selectable'>
+                                <a href='#edit_lineup_modal'>
+                                    <b>#2 Player name</b><br/>
+                                    Position - R
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class='twelve middle aligned centered wide column'>
+                </div>
+                <div class='two wide column'>
+                    <h2 class='ui center aligned header'>Away</h2>
+                    <table class='ui celled table'>
+                        <tr>
+                            <td>
+                                1
+                            </td>
+                            <td class='selectable'>
+                                <a href='#edit_lineup_modal'>
+                                    <b>#2 Player name</b><br/>
+                                    Position - R
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                2
+                            </td>
+                            <td class='selectable'>
+                                <a href='#edit_lineup_modal'>
+                                    <b>#2 Player name</b><br/>
+                                    Position - R
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                3
+                            </td>
+                            <td class='selectable'>
+                                <a href='#edit_lineup_modal'>
+                                    <b>#2 Player name</b><br/>
+                                    Position - R
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                4
+                            </td>
+                            <td class='selectable'>
+                                <a href='#edit_lineup_modal'>
+                                    <b>#2 Player name</b><br/>
+                                    Position - R
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                5
+                            </td>
+                            <td class='selectable'>
+                                <a href='#edit_lineup_modal'>
+                                    <b>#2 Player name</b><br/>
+                                    Position - R
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                6
+                            </td>
+                            <td class='selectable'>
+                                <a href='#edit_lineup_modal'>
+                                    <b>#2 Player name</b><br/>
+                                    Position - R
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                7
+                            </td>
+                            <td class='selectable'>
+                                <a href='#edit_lineup_modal'>
+                                    <b>#2 Player name</b><br/>
+                                    Position - R
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                8
+                            </td>
+                            <td class='selectable'>
+                                <a href='#edit_lineup_modal'>
+                                    <b>#2 Player name</b><br/>
+                                    Position - R
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                9
+                            </td>
+                            <td class='selectable'>
+                                <a href='#edit_lineup_modal'>
+                                    <b>#2 Player name</b><br/>
+                                    Position - R
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class='ui mini modal' id='edit_lineup_modal'>
+            <div class='ui centered header'>Edit Player Details</div>
+            <div class='content'>
+                <div class='ui form'>
+                    <div class='field'>
+                        <label>Number</label>
+                        <input max='99' min='0' name='number' placeholder='Jersey Number' type='number'/>
+                    </div>
+                    <div class='field'>
+                        <label>First Name</label>
+                        <input name='first-name' placeholder='First Name' type='text'/>
+                    </div>
+                    <div class='field'>
+                        <label>Last Name</label>
+                        <input name='last-name' placeholder='Last Name' type='text'/>
+                    </div>
+                    <div class='field'>
+                        <label>Position</label>
+                        <div class='ui selection dropdown' id='position_dropdown'>
+                            <input name='position' type='hidden'>
+                            <i class='dropdown icon'></i>
+                            <div class='default text'>Position</div>
+                            <div class='menu'>
+                                <div class='item' data-value='p'>Pitcher</div>
+                                <div class='item' data-value='c'>Catcher</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='ui fluid violet submit button' id='edit_lineup_submit'
+                         onclick='$("#edit_lineup_modal").modal("hide")'>
+                        Submit
                     </div>
                 </div>
             </div>
