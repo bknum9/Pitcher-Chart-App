@@ -42,6 +42,23 @@ function showPitchLocationModal(text, value) {
     $('#pitch_location_modal').modal('show');
 }
 
-document.getElementById('#ball_top_left').click(function () {
-    alert('Handler for .click() called.');
+// document.getElementById('#ball_top_left').click(function () {
+//     alert('Handler for .click() called.');
+// });
+
+$(document).ready(function () {
+    $('.menu .item').tab({history: false});
+});
+$(document).ready(function () {
+    $('#position_dropdown')
+        .dropdown()
+    ;
+});
+
+$(document).ready(function () {
+    var lineup_edit_link = document.getElementById('lineup_edit');
+    
+    lineup_edit_link.onclick = function () {
+        $('#edit_lineup_modal').modal('show');
+    };
 });
