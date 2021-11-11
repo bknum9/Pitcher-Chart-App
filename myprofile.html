@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Profile</title>
     <link href="./resources/css/index.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+  <script src='https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js'></script>
 </head>
 <body>
     <h1>Pitch Chart</h1>
@@ -41,17 +44,43 @@
                 <label for="age">Age</label>
                 <input type="number" id="age" placeholder="Age"/>
             </div>
-            <div class="formBox">
-                <label for="position">Position</label>
-                <input type="text" id="position" placeholder="Position"/>
+            <div class="ui form">
+                <div class="field">
+                    <label>Position</label>
+                    <div class="ui selection dropdown">
+                        <input type="hidden" name="position">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">Position</div>
+                        <div class="menu">
+                            <div class="item" data-value="p">Pitcher</div>
+                            <div class="item" data-value="c">Catcher</div>
+                            <div class="item" data-value="1b">First Base</div>
+                            <div class="item" data-value="2b">Second Base</div>
+                            <div class="item" data-value="ss">Shortstop</div>
+                            <div class="item" data-value="3b">Third Base</div>
+                            <div class="item" data-value="lf">Left Field</div>
+                            <div class="item" data-value="cf">Center Field</div>
+                            <div class="item" data-value="rf">Rightfield</div>
+                        </div>
+                    </div>
+                </div>
+              </div>
             </div>
-            <div class="checks">
-                <input type="radio" id="lefthanded"/>
-                <label for="lefthanded">LHP</label>
-            </div>
-            <div class="checks">
-                <input type="radio" id="righthanded"/>
-                <label for="righthanded">RHP</label>
+                 <div class="ui form">
+                <div class="inline fields">
+                  <label for="handedness">Throws:</label>
+                  <div class="field">
+                    <div class="ui radio checkbox">
+                      <input type="radio" name="rhp" checked="" tabindex="0" class="hidden">
+                      <label>Right</label>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="ui radio checkbox">
+                      <input type="radio" name="lhp" tabindex="0" class="hidden">
+                      <label>Left</label>
+                    </div>
+                  </div>
             </div>
             <div class="formBox">
                 <label for="location">Location</label>
@@ -75,6 +104,9 @@
         </fieldset>
         </form>
         <script>
+            $('select.dropdown')
+                .dropdown()
+                    ;
             let users= [];
             const addUser = (ev)=>{}
                 ev.preventDefault();
