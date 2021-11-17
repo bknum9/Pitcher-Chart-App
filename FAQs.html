@@ -1,54 +1,91 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <!-- Standard Meta -->
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <head>
+        <!-- Standard Meta -->
+        <meta charset='utf-8'/>
+        <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'/>
+        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0' name='viewport'>
+        <title>FAQs</title>
+        <script crossorigin='anonymous'
+                integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8='
+                src='https://code.jquery.com/jquery-3.1.1.min.js'>
+        </script>
+        <script src='https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js'></script>
+        <script src='FAQs.js'></script>
+        <link href='https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css'
+              rel='stylesheet'>
+    </head>
+    
+    <body>
 
-  <!-- Site Properties -->
-  <title>FAQs</title>
-  <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
-</head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/accordion.min.css">
-<body>
-  <script src='https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js'></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/accordion.min.js"></script>
-  <div class="pusher">
-    <div class="ui inverted vertical masthead center aligned segment">
-  
-      <div class="ui container">
-        <div class="ui large secondary inverted pointing menu">
-          <a class="item" href="homepage.html">Home</a>
-          <a class="item" href="metrics.html">Metrics</a>
-          <a class="active item" href="FAQs.html">FAQs</a>
-          <div class="right item">
-            <a class="ui inverted button" href="login.html">Log in</a>
+      <div class="pusher">
+        <div class="ui inverted vertical masthead center aligned segment">
+      
+          <div class="ui container">
+            <div class="ui large secondary inverted pointing menu">
+              <a class="toc item">
+              </a>
+              <a class="active item" href="homepage.html">Home</a>
+              <a class="item" href="metrics.html">Metrics</a>
+              <a class="item" href="FAQs.html">FAQs</a>
+              <div class="right item">
+                <a class="ui inverted button" href="login.html">Log in</a>
+              </div>
+            </div>
           </div>
+
+          <div class='ui inverted accordion'>
+            <div class='active title'>
+                <i class='dropdown icon'></i>
+                What data will I have access to?
+            </div>
+            <div class='active content'>
+                <p>Please see the <a href='metrics.html'>Metrics</a> page for an overview of some of the data
+                   you will be able to view.</p>
+            </div>
+            <div class='title'>
+                <i class='dropdown icon'></i>
+                What is the cost?
+            </div>
+            <div class='content'>
+                <p>The cost is xx per month. </p>
+            </div>
+            <div class='title'>
+                <i class='dropdown icon'></i>
+                Will NAME be sharing my data?
+            </div>
+            <div class='content'>
+                <p>NAME will not use your data without your permission. All of your data can be shared with
+                   coaches, scouts, organizations in the app.</p>
+            </div>
         </div>
-      </div>
-<div class="ui accordion">
-    <div class="title active">
-      <i class="dropdown icon"></i>
-      What data will I have access to?
-    </div>
-    <div class="content active">
-      <p class="transition visible" style="display: block !important;">Please see the <a href="metrics.html">Metrics</a> page for an overview of some of the data you will be able to view.</p>
-    </div>
-    <div class="title">
-      <i class="dropdown icon"></i>
-      What is the cost?
-    </div>
-    <div class="content">
-      <p class="transition hidden">The cost is xx per month. </p>
-    </div>
-    <div class="title">
-      <i class="dropdown icon"></i>
-      Will NAME be sharing my data?
-    </div>
-    <div class="content">
-      <p class="transition hidden">NAME will not use your data without your permission. All of your data can be shared with coaches, scouts, organizations in the app.</p>
-  </div>
-</body>
+                
+            </div>
+            <div class="ui inverted vertical footer segment">
+              <div class="ui container">
+                <div class="ui stackable inverted divided equal height stackable grid">
+                  <div class="three wide column">
+                    <h4 class="ui inverted header">About</h4>
+                    <div class="ui inverted link list">
+                      <a href="homepage.html" class="item">Home</a>
+                      <a href="metrics.html" class="item">Metrics</a>
+                      <a href="FAQs.html" class="item">FAQs</a>
+                    </div>
+                  </div>
+                  <div class="seven wide column">
+                    <h4 class="ui inverted header">Contact Us</h4>
+                    <div class="ui list">
+                      <div class="item">
+                        <i class="mail icon"></i>
+                        <div class="content">
+                          <a href="">our email</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </body>
 </html>
