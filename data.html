@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <!-- Site Properties -->
-  <title>Homepage - Semantic</title>
+  <title>Data</title>
   <link rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
   <script crossorigin='anonymous'
@@ -14,6 +14,7 @@
                 src='https://code.jquery.com/jquery-3.1.1.min.js'>
   </script>
   <script src='https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js'></script>
+  <script src="data.js"></script>
   <style rel='stylesheet' href =homepage.css  type="text/css"></style>
 </head>
 <body>
@@ -22,6 +23,9 @@
   
       <div class="ui container">
         <div class="ui large secondary inverted pointing menu">
+          <button class="ui inverted icon button">
+            <i class="chevron left icon"></i>
+          </button>
           <a class="item" href="play.html">Play Ball</a>
           <a class="active item" href="data.html">My Data</a>
           <a class="item" href="myprofile.html">Profile</a>
@@ -34,60 +38,61 @@
       </div>
     </div>
   </div>
-
-    <h1>Data</h1>
-      <div class="data-bar">
-        <ul>
-          <li><a href="">Season Stats</a>
+      
+      <div class="ui sidebar inverted vertical menu">
+        <div class="data-bar">
+          <ul>
+            <li><a href="">Season Stats</a>
+                <div class="sub-data-bar">
+                <ul>
+                  <li><a href="">Standard</a></li>
+                  <li><a href="">Advanced</a></li>
+                  <li><a href="">Batted Ball</a></li>
+                  <li><a href="">More Batted Ball</a></li>
+                  <li><a href="">Pitch Type</a></li>
+                  <li><a href="">Pitch Info Pitch Type/Velocity</a></li>
+                  <li><a href="">Plate Discipline</a></li>
+                  <li><a href="">Fielding</a></li>
+                </ul>
+                </div>
+              </li>
+            <li><a href="">Splits</a>
               <div class="sub-data-bar">
-              <ul>
-                <li><a href="">Standard</a></li>
-                <li><a href="">Advanced</a></li>
-                <li><a href="">Batted Ball</a></li>
-                <li><a href="">More Batted Ball</a></li>
-                <li><a href="">Pitch Type</a></li>
-                <li><a href="">Pitch Info Pitch Type/Velocity</a></li>
-                <li><a href="">Plate Discipline</a></li>
-                <li><a href="">Fielding</a></li>
-              </ul>
-              </div>
+                <ul>
+                  <li><a href="">Handedness</a></li>
+                  <li><a href="">Home vs. Away</a></li>
+                  <li><a href="">Monthly</a></li>
+                  <li><a href="">Pitch Counts</a></li>
+                  <li><a href="">Pitch Type</a></li>
+                  </ul>
+                  </div>
             </li>
-          <li><a href="">Splits</a>
-            <div class="sub-data-bar">
-              <ul>
-                <li><a href="">Handedness</a></li>
-                <li><a href="">Home vs. Away</a></li>
-                <li><a href="">Monthly</a></li>
-                <li><a href="">Pitch Counts</a></li>
-                <li><a href="">Pitch Type</a></li>
-                </ul>
-                </div>
-          </li>
-          <li><a href="">Game Log</a></li>
-          <li><a href="">Play Log</a></li>
-          <li><a href="">Spray Chart</a>
-            <div class="sub-data-bar">
-              <ul>
-                <li><a href="">Handedness</a></li>
-                <li><a href="">Home vs. Away</a></li>
-                <li><a href="">Monthly</a></li>
-                <li><a href="">Pitch Counts</a></li>
-                <li><a href="">Pitch Type</a></li>
-                </ul>
-                </div>
-          </li>
-          <li><a href="">Heat Map</a>
-            <div class="sub-data-bar">
-              <ul>
-                <li><a href="">Handedness</a></li>
-                <li><a href="">Home vs. Away</a></li>
-                <li><a href="">Monthly</a></li>
-                <li><a href="">Pitch Counts</a></li>
-                <li><a href="">Pitch Type</a></li>
-                </ul>
-                </div>
-          </li>
-        </ul>
+            <li><a href="">Game Log</a></li>
+            <li><a href="">Play Log</a></li>
+            <li><a href="">Spray Chart</a>
+              <div class="sub-data-bar">
+                <ul>
+                  <li><a href="">Handedness</a></li>
+                  <li><a href="">Home vs. Away</a></li>
+                  <li><a href="">Monthly</a></li>
+                  <li><a href="">Pitch Counts</a></li>
+                  <li><a href="">Pitch Type</a></li>
+                  </ul>
+                  </div>
+            </li>
+            <li><a href="">Heat Map</a>
+              <div class="sub-data-bar">
+                <ul>
+                  <li><a href="">Handedness</a></li>
+                  <li><a href="">Home vs. Away</a></li>
+                  <li><a href="">Monthly</a></li>
+                  <li><a href="">Pitch Counts</a></li>
+                  <li><a href="">Pitch Type</a></li>
+                  </ul>
+                  </div>
+            </li>
+          </ul>
+        </div>
       </div>
 
       <div class="ui inverted vertical footer segment">
