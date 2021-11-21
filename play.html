@@ -1,22 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-
-  <!-- Site Properties -->
-  <title>Play Ball</title>
-  <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
-  <script crossorigin='anonymous'
+<html lang='en'>
+  <head>
+        <meta charset='UTF-8'>
+        <title>Play</title>
+        <script crossorigin='anonymous'
                 integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8='
                 src='https://code.jquery.com/jquery-3.1.1.min.js'>
-  </script>
-  <script src='https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js'></script>
-  <link rel='stylesheet' href ="homepage.css"  type="text/css">
+        </script>
+        <script src='https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js'></script>
+        <script src='play.js'></script>
+        <link href='https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css'
+              rel='stylesheet'>
+        <link href='play.css' rel='stylesheet' type='text/css'>
+        <link href='favicons/favicon_white_blue.ico' rel='shortcut icon' type='image/jpg'/>
+  </head>
 
-</head>
 <body>
   <div class="pusher">
     <div class="ui inverted vertical masthead center aligned segment">
@@ -36,295 +34,552 @@
     </div>
   </div>
 
-    <h1>Play Ball</h1>
-      <ul>
 
-          <li>Pitch Location</li>
-          <li>Pitch Result (ball, strike, foul ball)</li>
-          <li>Play Result (clickable, hit, error, groundout, sac fly, bunt, etc)</li>
-          <li>Contact Location</li>
-          <li>Contact Type (line drive, groundball, fly ball, bunt)</li>
-          <li>Runners on Base </li>
-      </ul>
-      <div class='pitchinfopop' id='pitchinfopop'>
-          <div class="overlay"></div>
-          <div class="content">
-              <div class="savebtn" onclick="togglePopup()">&times;
-          </div>
-            <h1>Pitch Info</h1>
-                <div class="checks">
-                    <input type="radio" id="4fastball"/>
-                    <label for="4fastball">4 seam Fastball</label>
-                <div class="checks">
-                     <input type="radio" id="2fastball"/>
-                     <label for="2fastball">2 seam Fastball</label>
-                <div class="checks">
-                     <input type="radio" id="curveball"/>
-                     <label for="curveball">Curveball</label>
-                <div class="checks">
-                    <input type="radio" id="slider"/>
-                    <label for="slider">Slider</label>
-                 <div class="checks">
-                    <input type="radio" id="changeup"/>
-                    <label for="changeup">Changeup</label>
-                <div class="checks">
-                     <input type="radio" id="otherBall"/>
-                     <label for="otherBall">Other</label>
-                <div class="formBox">
-                    <label for="pitchVelocity">Pitch Velocity</label>
-                    <input type="number" id="pitchVelocity" placeholder="pitchVelocity"/>
-                <p id="para">Pitch Location to be figured out</p>
-                <table border= 2px id="strikeZone" class="strikeZone">
-                  <tr>
-                    <td rowspan="5" id='ball' onclick="content(this)"><button class="button" onclick="incrementBall()">Balls</button></td>
-                  </tr>
-                  <tr>
-                    <td colspan="4" id="ball" onclick="content(this)"><button class="button" onclick="incrementBall()">Balls</button></td>
-                  </tr>
-                  <tr>
-                    <td id="" onclick="content(this)"><button class="button" onclick="incrementStrike()">K</button></td>
-                    <td id="" onclick="content(this)"><button class="button" onclick="incrementStrike()">K</button></td>
-                    <td id="" onclick="content(this)"><button class="button" onclick="incrementStrike()">K</button></td>
-                    <td rowspan ="5" id="ball" onclick="content(this)"><button class="button" onclick="incrementBall()">Balls</button></td>
-                  </tr>
-                  <tr>
-                    <td id="" onclick="content(this)"><button class="button" onclick="incrementStrike()">K</button></td>
-                    <td id="" onclick="content(this)"><button class="button" onclick="incrementStrike()">K</button></td>
-                    <td id="" onclick="content(this)"><button class="button" onclick="incrementStrike()">K</button></td>
-                  </tr>
-                  <tr>
-                    <td id="" onclick="content(this)"><button class="button" onclick="incrementStrike()">K</button></td>
-                    <td id="" onclick="content(this)"><button class="button" onclick="incrementStrike()">K</button></td>
-                    <td id="" onclick="content(this)"><button class="button" onclick="incrementStrike()">K</button></td>
-                  </tr>
-                  <tr>
-                    <td colspan="4" id="ball" onclick="content(this)"><button class="button" onclick="incrementBall()">Balls</button></td>
-                  </tr>
-                </table>
-
-      </div>
-      <div class='ball'>
-        <p>Balls</p>
-        <p id='incrementBall'>0</p>
-      </div>
-    <div class='strike'>
-      <p>Strikes</p>
-      <p id='incrementStrike'>0</p>
-    </div>
-
-    <svg class="baseball-field" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 406 398">
-      <g data-name="Field">
-        <path class="dark-grass" d="M396.45849,213.97386c-.16877-7.59739-6.19474-201.84874-192.90143-201.84874-191.10739,0-192.89085,197.41523-192.906,202.00339L189.256,392.73344a20.11216,20.11216,0,0,0,28.44287,0Z"/>
-        <path data-name="Infield" class="sand" d="M203.47745,347.4514l90.93874-90.93874a91.554,91.554,0,0,0-181.87743,0Z"/>
-        <g>
-          <circle data-name="Home Plate Sand" class="sand" cx="203.47747" cy="347.00459" r="12.82958"/>
-          <circle data-name="Home Plate" class="white" cx="203.47747" cy="347.00459" r="4.45968"/>
-        </g>
-        <path data-name="Foul Lines" class="white" d="M203.4775,348.95105,389.12894,163.29961q-.14544-.60106-.29434-1.20588l-.7495-.7495L203.4775,345.95183,18.47531,160.94964l-.74972.74972q-.14447.60844-.286,1.21377Z"/>
-        <rect class="dark-grass" x="159.65524" y="223.28515" width="87.64446" height="87.64446" transform="translate(158.48433 599.86113) rotate(-135)"/>
-        <g>
-          <circle data-name="2nd Base Sand" class="sand" cx="203.47747" cy="205.13339" r="7.08924"/>
-          <circle data-name="2nd Base" class="white" cx="203.47747" cy="205.13339" r="2.46428"/>
-        </g>
-        <g>
-          <circle data-name="1st Base Sand" class="sand" cx="265.22208" cy="266.878" r="7.08924"/>
-          <circle data-name="1st Base" class="white" cx="265.22208" cy="266.878" r="2.46428"/>
-        </g>
-        <g>
-          <circle data-name="3rd Base Sand" class="sand" cx="141.70047" cy="266.878" r="7.08924"/>
-          <circle data-name="3rd Base" class="white" cx="141.70047" cy="266.878" r="2.46428"/>
-        </g>
-        <circle data-name="Mound" class="sand" cx="203.47747" cy="267.10738" r="7.59631"/>
+  <div class='ui top attached tabular menu'>
+    <a class='active item' data-tab='game'>Game</a>
+    <a class='item' data-tab='lineups'>Edit Lineups</a>
+</div>
+<div class='ui bottom attached active tab segment' data-tab='game'>
+  <svg class="baseball-field" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 406 398">
+    <g data-name="Field">
+      <path class="dark-grass" d="M396.45849,213.97386c-.16877-7.59739-6.19474-201.84874-192.90143-201.84874-191.10739,0-192.89085,197.41523-192.906,202.00339L189.256,392.73344a20.11216,20.11216,0,0,0,28.44287,0Z"/>
+      <path data-name="Infield" class="sand" d="M203.47745,347.4514l90.93874-90.93874a91.554,91.554,0,0,0-181.87743,0Z"/>
+      <g>
+        <circle data-name="Home Plate Sand" class="sand" cx="203.47747" cy="347.00459" r="12.82958"/>
+        <circle data-name="Home Plate" class="white" cx="203.47747" cy="347.00459" r="4.45968"/>
       </g>
-      
-      <!-- Translate x,y by 302, 347 to set origin to Home Plate -->
-      <g data-name="Hits" class="hits" transform="translate(203 347)">
-        <!-- 		<circle class="hit red" cx="0" cy="-150" r="6"/> -->
-        <!-- 		<circle class="hit blue" cx="0" cy="0" r="6"/> -->
-        <!-- R 150 -->
-        <path d="M0,0 Q-18,-165 0,-165" transform="rotate(18)" stroke-width="2" style="fill: none; stroke: black" stroke-dasharray="5, 5" />
-        <circle class="hit blue" cx="0" cy="-165" r="6" transform="rotate(18)"/> 
+      <path data-name="Foul Lines" class="white" d="M203.4775,348.95105,389.12894,163.29961q-.14544-.60106-.29434-1.20588l-.7495-.7495L203.4775,345.95183,18.47531,160.94964l-.74972.74972q-.14447.60844-.286,1.21377Z"/>
+      <rect class="dark-grass" x="159.65524" y="223.28515" width="87.64446" height="87.64446" transform="translate(158.48433 599.86113) rotate(-135)"/>
+      <g>
+        <circle data-name="2nd Base Sand" class="sand" cx="203.47747" cy="205.13339" r="7.08924"/>
+        <circle data-name="2nd Base" class="white" cx="203.47747" cy="205.13339" r="2.46428"/>
       </g>
-    <!-- 	<g data-name="Field Markers">
-        <text class="cls-13" transform="translate(1.95162 203.27701)">A</text>
-        <text class="cls-13" transform="translate(5.28496 176.16279)">B</text>
-        <text class="cls-13" transform="translate(12.28496 150.04411)">C</text>
-        <text class="cls-13" transform="translate(21.28496 126.04411)">D</text>
-        <text class="cls-13" transform="translate(31.61813 104.04411)">E</text>
-        <text class="cls-13" transform="translate(43.95162 83.713)">F</text>
-        <text class="cls-13" transform="translate(56.61829 65.71078)">G</text>
-        <text class="cls-13" transform="translate(74.95163 49.04411)">H</text>
-        <text class="cls-13" transform="translate(98.09225 35.21615)">I</text>
-        <text class="cls-13" transform="translate(116.61829 26.37744)">J</text>
-        <text class="cls-13" transform="translate(139.23618 18.37744)">K</text>
-        <text class="cls-13" transform="translate(163.95163 12.733)">L</text>
-        <text class="cls-13" transform="translate(186.28496 10.04411)">M</text>
-        <text class="cls-13" transform="translate(210.56688 10.04411)">N</text>
-        <text class="cls-13" transform="translate(226.99124 11.37744)">O</text>
-        <text class="cls-13" transform="translate(247.28496 15.37744)">P</text>
-        <text class="cls-13" transform="translate(267.68637 20.04411)">Q</text>
-        <text class="cls-13" transform="translate(289.64467 28.37744)">R</text>
-        <text class="cls-13" transform="translate(310.32417 40.3269)">S</text>
-        <text class="cls-13" transform="translate(330.78496 54.3772)">T</text>
-        <text class="cls-13" transform="translate(347.6183 75.41023)">U</text>
-        <text class="cls-13" transform="translate(364.03496 98.04387)">V</text>
-        <text class="cls-13" transform="translate(375.1183 118.95438)">W</text>
-        <text class="cls-13" transform="translate(387.03496 147.52384)">X</text>
-        <text class="cls-13" transform="translate(394.03496 174.37769)">Y</text>
-        <text class="cls-13" transform="translate(398.78496 205.98229)">Z</text>
-      </g> -->
-    </svg>
+      <g>
+        <circle data-name="1st Base Sand" class="sand" cx="265.22208" cy="266.878" r="7.08924"/>
+        <circle data-name="1st Base" class="white" cx="265.22208" cy="266.878" r="2.46428"/>
+      </g>
+      <g>
+        <circle data-name="3rd Base Sand" class="sand" cx="141.70047" cy="266.878" r="7.08924"/>
+        <circle data-name="3rd Base" class="white" cx="141.70047" cy="266.878" r="2.46428"/>
+      </g>
+      <circle data-name="Mound" class="sand" cx="203.47747" cy="267.10738" r="7.59631"/>
+    </g>
     
-    <form> Game Setup
-      <fieldset>
-      <div class="formBox">
-          <label for="opponentTeamName">Opponent</label>
-          <input type="text" id="opponentTeamName"/>
-      </div>
-      <div class="formBox">
-          <label for="gameDate">Date</label>
-          <input type="date" id="gameDate" placeholder="Date"/>
-      </div>
-      <p> Site </p>
-     <div class="checks">
-        <input type="radio" id="homeGame"/>
-        <label for="homeGame">Home</label>
-    </div>
-    <div class="checks">
-        <input type="radio" id="awayGame"/>
-        <label for="awayGame">Away</label>
-    </div>
-    <div class="checks">
-        <input type="radio" id="neutralGame"/>
-        <label for="neutralGame">Neutral</label>
-    </div>
-    <p>Lineup</p>
-      <div class="formBox">
-          <label for="playerName">Player Name</label>
-          <input type="text" id="playerName"/>
-      </div>
-      <div class="checks">
-          <input type="radio" id="lefty"/>
-          <label for="lefty">LHH</label>
-      </div>
-      <div class="checks">
-        <input type="radio" id="righty"/>
-        <label for="righty">RHH</label>
-        <div class="formBox">
-            <label for="playerName">Player Name</label>
-            <input type="text" id="playerName"/>
-        </div>
-        <div class="checks">
-            <input type="radio" id="lefty"/>
-            <label for="lefty">LHH</label>
-        </div>
-        <div class="checks">
-          <input type="radio" id="righty"/>
-          <label for="righty">RHH</label>
-          <div class="formBox">
-            <label for="playerName">Player Name</label>
-            <input type="text" id="playerName"/>
-        </div>
-        <div class="checks">
-            <input type="radio" id="lefty"/>
-            <label for="lefty">LHH</label>
-        </div>
-        <div class="checks">
-          <input type="radio" id="righty"/>
-          <label for="righty">RHH</label>
-          <div class="formBox">
-            <label for="playerName">Player Name</label>
-            <input type="text" id="playerName"/>
-        </div>
-        <div class="checks">
-            <input type="radio" id="lefty"/>
-            <label for="lefty">LHH</label>
-        </div>
-        <div class="checks">
-          <input type="radio" id="righty"/>
-          <label for="righty">RHH</label>
-          <div class="formBox">
-            <label for="playerName">Player Name</label>
-            <input type="text" id="playerName"/>
-        </div>
-        <div class="checks">
-            <input type="radio" id="lefty"/>
-            <label for="lefty">LHH</label>
-        </div>
-        <div class="checks">
-          <input type="radio" id="righty"/>
-          <label for="righty">RHH</label>
-          <div class="formBox">
-            <label for="playerName">Player Name</label>
-            <input type="text" id="playerName"/>
-        </div>
-        <div class="checks">
-            <input type="radio" id="lefty"/>
-            <label for="lefty">LHH</label>
-        </div>
-        <div class="checks">
-          <input type="radio" id="righty"/>
-          <label for="righty">RHH</label>
-          <div class="formBox">
-            <label for="playerName">Player Name</label>
-            <input type="text" id="playerName"/>
-        </div>
-        <div class="checks">
-            <input type="radio" id="lefty"/>
-            <label for="lefty">LHH</label>
-        </div>
-        <div class="checks">
-          <input type="radio" id="righty"/>
-          <label for="righty">RHH</label>
-          <div class="formBox">
-            <label for="playerName">Player Name</label>
-            <input type="text" id="playerName"/>
-        </div>
-        <div class="checks">
-            <input type="radio" id="lefty"/>
-            <label for="lefty">LHH</label>
-        </div>
-        <div class="checks">
-          <input type="radio" id="righty"/>
-          <label for="righty">RHH</label>
-          <div class="formBox">
-            <label for="playerName">Player Name</label>
-            <input type="text" id="playerName"/>
-        </div>
-        <div class="checks">
-            <input type="radio" id="lefty"/>
-            <label for="lefty">LHH</label>
-        </div>
-        <div class="checks">
-          <input type="radio" id="righty"/>
-          <label for="righty">RHH</label>
-
-          <div class="ui inverted vertical footer segment">
-            <div class="ui container">
-              <div class="ui stackable inverted divided equal height stackable grid">
-                <div class="three wide column">
-                  <h4 class="ui inverted header">Menu</h4>
-                  <div class="ui inverted link list">
-                    <a href="play.html" class="item">Play</a>
-                    <a href="data.html" class="item">Data</a>
-                    <a href="myprofile.html" class="item">My Profile</a>
-                  </div>
+    <!-- Translate x,y by 302, 347 to set origin to Home Plate -->
+    <g data-name="Hits" class="hits" transform="translate(203 347)">
+      <!-- 		<circle class="hit red" cx="0" cy="-150" r="6"/> -->
+      <!-- 		<circle class="hit blue" cx="0" cy="0" r="6"/> -->
+      <!-- R 150 -->
+      <path d="M0,0 Q-18,-165 0,-165" transform="rotate(18)" stroke-width="2" style="fill: none; stroke: black" stroke-dasharray="5, 5" />
+      <circle class="hit blue" cx="0" cy="-165" r="6" transform="rotate(18)"/> 
+    </g>
+  <!-- 	<g data-name="Field Markers">
+      <text class="cls-13" transform="translate(1.95162 203.27701)">A</text>
+      <text class="cls-13" transform="translate(5.28496 176.16279)">B</text>
+      <text class="cls-13" transform="translate(12.28496 150.04411)">C</text>
+      <text class="cls-13" transform="translate(21.28496 126.04411)">D</text>
+      <text class="cls-13" transform="translate(31.61813 104.04411)">E</text>
+      <text class="cls-13" transform="translate(43.95162 83.713)">F</text>
+      <text class="cls-13" transform="translate(56.61829 65.71078)">G</text>
+      <text class="cls-13" transform="translate(74.95163 49.04411)">H</text>
+      <text class="cls-13" transform="translate(98.09225 35.21615)">I</text>
+      <text class="cls-13" transform="translate(116.61829 26.37744)">J</text>
+      <text class="cls-13" transform="translate(139.23618 18.37744)">K</text>
+      <text class="cls-13" transform="translate(163.95163 12.733)">L</text>
+      <text class="cls-13" transform="translate(186.28496 10.04411)">M</text>
+      <text class="cls-13" transform="translate(210.56688 10.04411)">N</text>
+      <text class="cls-13" transform="translate(226.99124 11.37744)">O</text>
+      <text class="cls-13" transform="translate(247.28496 15.37744)">P</text>
+      <text class="cls-13" transform="translate(267.68637 20.04411)">Q</text>
+      <text class="cls-13" transform="translate(289.64467 28.37744)">R</text>
+      <text class="cls-13" transform="translate(310.32417 40.3269)">S</text>
+      <text class="cls-13" transform="translate(330.78496 54.3772)">T</text>
+      <text class="cls-13" transform="translate(347.6183 75.41023)">U</text>
+      <text class="cls-13" transform="translate(364.03496 98.04387)">V</text>
+      <text class="cls-13" transform="translate(375.1183 118.95438)">W</text>
+      <text class="cls-13" transform="translate(387.03496 147.52384)">X</text>
+      <text class="cls-13" transform="translate(394.03496 174.37769)">Y</text>
+      <text class="cls-13" transform="translate(398.78496 205.98229)">Z</text>
+    </g> -->
+  </svg>
+    <div class='ui grid'>
+        <div class='two wide column'>
+            <h2 class='ui center aligned header'>Away</h2>
+            <div class='ui celled ordered list'>
+                <div class='item'>
+                    <div class='header'>#2 Player name</div>
+                    Position - R
                 </div>
-                <div class="seven wide column">
-                  <h4 class="ui inverted header">Contact Us</h4>
-                  <div class="ui list">
-                    <div class="item">
-                      <i class="mail icon"></i>
-                      <div class="content">
-                        <a href="">our email</a>
-                      </div>
+                <div class='item'>
+                    <div class='header'>#2 Player name</div>
+                    Position - R
+                </div>
+                <div class='item'>
+                    <div class='header'>#2 Player name</div>
+                    Position - R
+                </div>
+                <div class='item'>
+                    <div class='header'>#2 Player name</div>
+                    Position - R
+                </div>
+                <div class='item'>
+                    <div class='header'>#2 Player name</div>
+                    Position - R
+                </div>
+                <div class='item'>
+                    <div class='header'>#2 Player name</div>
+                    Position - R
+                </div>
+                <div class='item'>
+                    <div class='header'>#2 Player name</div>
+                    Position - R
+                </div>
+                <div class='item'>
+                    <div class='header'>#2 Player name</div>
+                    Position - R
+                </div>
+                <div class='item'>
+                    <div class='header'>#2 Player name</div>
+                    Position - R
+                </div>
+            </div>
+        </div>
+        <div class='twelve middle aligned centered wide column'>
+            <h1>Pitch</h1>
+            <button class='ui massive black circular icon button' onclick='showModal();'>
+                <i class='baseball ball icon'></i>
+            </button>
+        </div>
+        <div class='two wide column'>
+            <h2 class='ui center aligned header'>Home</h2>
+            <div class='ui celled ordered list'>
+                <div class='item'>
+                    <div class='header'>#2 Player name</div>
+                    Position - R
+                </div>
+                <div class='item'>
+                    <div class='header'>#2 Player name</div>
+                    Position - R
+                </div>
+                <div class='item'>
+                    <div class='header'>#2 Player name</div>
+                    Position - R
+                </div>
+                <div class='item'>
+                    <div class='header'>#2 Player name</div>
+                    Position - R
+                </div>
+                <div class='item'>
+                    <div class='header'>#2 Player name</div>
+                    Position - R
+                </div>
+                <div class='item'>
+                    <div class='header'>#2 Player name</div>
+                    Position - R
+                </div>
+                <div class='item'>
+                    <div class='header'>#2 Player name</div>
+                    Position - R
+                </div>
+                <div class='item'>
+                    <div class='header'>#2 Player name</div>
+                    Position - R
+                </div>
+                <div class='item'>
+                    <div class='header'>#2 Player name</div>
+                    Position - R
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class='ui mini modal' id='pitch_type_modal'>
+    <div class='ui centered header'>Pitch Type</div>
+    <div class='content'>
+        <form class='ui form'>
+            <div class='field'>
+                <div class='ui fluid dropdown black labeled search icon button' id='pitch_type'>
+                    <i class='baseball ball icon'></i>
+                    <div class='text'></div>
+                    <input name='pitch_type' type='hidden'>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class='ui mini modal' id='pitch_detail_modal'>
+    <div class='ui centered header'>Pitch Details</div>
+    <div class='content'>
+        <form class='ui form'>
+            <div class='field'>
+                <label>Velocity</label>
+                <div class='ui fluid right labeled input'>
+                    <input max='105' min='50'
+                           name='velocity' placeholder='Velocity' type='number'>
+                    <div class='ui basic black label'>
+                        mph
                     </div>
-                  </div>
+                </div>
+            </div>
+            <div class='field'>
+                <label>Vertical Movement</label>
+                <div class='ui fluid right labeled input'>
+                    <input max='30' min='-30'
+                           name='vertical_movement' placeholder='Vertical Movement' type='number'>
+                    <div class='ui basic black label'>
+                        inches
+                    </div>
+                </div>
+            </div>
+            <div class='field'>
+                <label>Horizontal Movement</label>
+                <div class='ui fluid right labeled input'>
+                    <input max='30' min='-30'
+                           name='horizontal_movement' placeholder='Horizontal Movement' type='number'>
+                    <div class='ui basic black label'>
+                        inches
+                    </div>
+                </div>
+            </div>
+            <label></label>
+            <div class='ui fluid black submit button' id='pitch_detail_submit'
+                 onclick='showPitchLocationModal()'>
+                Submit
+            </div>
+        </form>
+    </div>
+</div>
+<div class='ui mini modal' id='pitch_location_modal'>
+    <div class='ui centered header'>Pitch Location</div>
+    <div class='ui padded grid'>
+        <div class='column'>
+            <div class='ui segment'>
+                <svg id='strike_zone' viewBox='-0.5 -0.5 101 101' xmlns='http://www.w3.org/2000/svg'>
+                    <style>
+                        rect {
+                            fill: #EEEEEE;
+                            stroke: #000080;
+                            stroke-width: 1;
+                        }
+                        
+                        rect:hover {
+                            fill: #FFFFFF;
+                            stroke: #6435C9;
+                            stroke-width: 1;
+                        }
+                        
+                        polygon {
+                            fill: #EEEEEE;
+                            stroke: #000080;
+                            stroke-width: 1;
+                        }
+                        
+                        polygon:hover {
+                            fill: #FFFFFF;
+                            stroke: #6435C9;
+                            stroke-width: 1;
+                        }
+                    </style>
+                    <rect height='101' width='101' x='-0.5' y='-0.5'/>
+                    <polygon id='ball_top_left'
+                             points='0.5,0.5 49.5,0.5 49.5,19.5 19.5,19.5 19.5,49.5 0.5,49.5'/>
+                    <polygon id='ball_bottom_left'
+                             points='0.5,50.5 19.5,50.5 19.5,80.5 49.5,80.5 49.5,99.5 0.5,99.5'/>
+                    <polygon id='ball_bottom_right'
+                             points='50.5,80.5 80.5,80.5 80.5,50.5 99.5,50.5 99.5,99.5 50.5,99.5'/>
+                    <polygon id='ball_top_right'
+                             points='50.5,0.5 99.5,0.5 99.5,49.5 80.5,49.5 80.5,19.5 50.5,19.5'/>
+                    <rect height='19' id='strike_top_left' width='19' x='20.5' y='20.5'/>
+                    <rect height='19' id='strike_top_middle' width='19' x='40.5' y='20.5'/>
+                    <rect height='19' id='strike_top_right' width='19' x='60.5' y='20.5'/>
+                    <rect height='19' id='strike_middle_left' width='19' x='20.5' y='40.5'/>
+                    <rect height='19' id='strike_middle_middle' width='19' x='40.5' y='40.5'/>
+                    <rect height='19' id='strike_middle_right' width='19' x='60.5' y='40.5'/>
+                    <rect height='19' id='strike_bottom_left' width='19' x='20.5' y='60.5'/>
+                    <rect height='19' id='strike_bottom_middle' width='19' x='40.5' y='60.5'/>
+                    <rect height='19' id='strike_bottom_right' width='19' x='60.5' y='60.5'/>
+                </svg>
+            <div class='ui fluid black submit button' id='pitch_detail_submit'
+                onclick='showPitchLocationModal()'>
+               Submit
+           </div>  
+            </div>
+        </div>
+    </div>
+</div>
+<div class='ui bottom attached tab segment' data-tab='lineups'>
+    <div class='ui grid'>
+        <div class='two wide column'>
+            <h2 class='ui center aligned header'>Away</h2>
+            <table class='ui celled table'>
+                <tr>
+                    <td>
+                        1
+                    </td>
+                    <td class='selectable'>
+                        <a href='#edit_lineup_modal' id='lineup_edit'>
+                            <b>#2 Player name</b><br/>
+                            Position - R
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2
+                    </td>
+                    <td class='selectable'>
+                        <a href='#edit_lineup_modal'>
+                            <b>#2 Player name</b><br/>
+                            Position - R
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        3
+                    </td>
+                    <td class='selectable'>
+                        <a href='#edit_lineup_modal'>
+                            <b>#2 Player name</b><br/>
+                            Position - R
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        4
+                    </td>
+                    <td class='selectable'>
+                        <a href='#edit_lineup_modal'>
+                            <b>#2 Player name</b><br/>
+                            Position - R
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        5
+                    </td>
+                    <td class='selectable'>
+                        <a href='#edit_lineup_modal'>
+                            <b>#2 Player name</b><br/>
+                            Position - R
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        6
+                    </td>
+                    <td class='selectable'>
+                        <a href='#edit_lineup_modal'>
+                            <b>#2 Player name</b><br/>
+                            Position - R
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        7
+                    </td>
+                    <td class='selectable'>
+                        <a href='#edit_lineup_modal'>
+                            <b>#2 Player name</b><br/>
+                            Position - R
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        8
+                    </td>
+                    <td class='selectable'>
+                        <a href='#edit_lineup_modal'>
+                            <b>#2 Player name</b><br/>
+                            Position - R
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        9
+                    </td>
+                    <td class='selectable'>
+                        <a href='#edit_lineup_modal'>
+                            <b>#2 Player name</b><br/>
+                            Position - R
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class='twelve middle aligned centered wide column'>
+        </div>
+        <div class='two wide column'>
+            <h2 class='ui center aligned header'>Away</h2>
+            <table class='ui celled table'>
+                <tr>
+                    <td>
+                        1
+                    </td>
+                    <td class='selectable'>
+                        <a href='#edit_lineup_modal'>
+                            <b>#2 Player name</b><br/>
+                            Position - R
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2
+                    </td>
+                    <td class='selectable'>
+                        <a href='#edit_lineup_modal'>
+                            <b>#2 Player name</b><br/>
+                            Position - R
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        3
+                    </td>
+                    <td class='selectable'>
+                        <a href='#edit_lineup_modal'>
+                            <b>#2 Player name</b><br/>
+                            Position - R
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        4
+                    </td>
+                    <td class='selectable'>
+                        <a href='#edit_lineup_modal'>
+                            <b>#2 Player name</b><br/>
+                            Position - R
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        5
+                    </td>
+                    <td class='selectable'>
+                        <a href='#edit_lineup_modal'>
+                            <b>#2 Player name</b><br/>
+                            Position - R
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        6
+                    </td>
+                    <td class='selectable'>
+                        <a href='#edit_lineup_modal'>
+                            <b>#2 Player name</b><br/>
+                            Position - R
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        7
+                    </td>
+                    <td class='selectable'>
+                        <a href='#edit_lineup_modal'>
+                            <b>#2 Player name</b><br/>
+                            Position - R
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        8
+                    </td>
+                    <td class='selectable'>
+                        <a href='#edit_lineup_modal'>
+                            <b>#2 Player name</b><br/>
+                            Position - R
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        9
+                    </td>
+                    <td class='selectable'>
+                        <a href='#edit_lineup_modal'>
+                            <b>#2 Player name</b><br/>
+                            Position - R
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div class='ui mini modal' id='edit_lineup_modal'>
+    <div class='ui centered header'>Edit Player Details</div>
+    <div class='content'>
+        <div class='ui form'>
+            <div class='field'>
+                <label>Number</label>
+                <input max='99' min='0' name='number' placeholder='Jersey Number' type='number'/>
+            </div>
+            <div class='field'>
+                <label>First Name</label>
+                <input name='first-name' placeholder='First Name' type='text'/>
+            </div>
+            <div class='field'>
+                <label>Last Name</label>
+                <input name='last-name' placeholder='Last Name' type='text'/>
+            </div>
+            <div class='field'>
+                <label>Position</label>
+                <div class='ui selection dropdown' id='position_dropdown'>
+                    <input name='position' type='hidden'>
+                    <i class='dropdown icon'></i>
+                    <div class='default text'>Position</div>
+                    <div class='menu'>
+                        <div class='item' data-value='p'>Pitcher</div>
+                        <div class='item' data-value='c'>Catcher</div>
+                    </div>
+                </div>
+            </div>
+            <div class='ui fluid black submit button' id='edit_lineup_submit'
+                 onclick='$("#edit_lineup_modal").modal("hide")'>
+                Submit
+            </div>
+
+    
+<div class="ui inverted vertical footer segment">
+    <div class="ui container">
+      <div class="ui stackable inverted divided equal height stackable grid">
+         <div class="three wide column">
+            <h4 class="ui inverted header">Menu</h4>
+              <div class="ui inverted link list">
+                  <a href="play.html" class="item">Play</a>
+                  <a href="data.html" class="item">Data</a>
+                  <a href="myprofile.html" class="item">My Profile</a>
                 </div>
               </div>
-            </div>
-          </div>  
-
+              <div class="seven wide column">
+                <h4 class="ui inverted header">Contact Us</h4>
+                <div class="ui list">
+                  <div class="item">
+                    <i class="mail icon"></i>
+                    <div class="content">
+                      <a href="">our email</a>
+                    </div>
+                </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>  
      
     
 </body>
